@@ -1,0 +1,3 @@
+- Module that should contain the second screen of the application
+- Make sure common dependencies are not defined directly into this module
+- But rather are made available from the core module

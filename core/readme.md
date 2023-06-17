@@ -1,0 +1,2 @@
+- Core module exposes dependencies to other modules by abstracting the implementation
+- This module should be responsible for providing dependencies across features

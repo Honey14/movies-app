@@ -1,0 +1,2 @@
+- Common module provides implementation for common features to be used across modules
+- Add any common feature implementation to it
