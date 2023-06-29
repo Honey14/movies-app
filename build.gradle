@@ -11,7 +11,7 @@ buildscript {
         /*https://blog.jetbrains.com/kotlin/category/releases/*/
         kotlinVersion = '1.6.10'
         /*https://github.com/Kotlin/kotlinx.coroutines/releases*/
-        coroutinesVersion = '1.6.0'
+        coroutinesVersion = '1.7.0'
         kotlinDep = [
             gradlePlugin: "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}",
             stdlib      : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
