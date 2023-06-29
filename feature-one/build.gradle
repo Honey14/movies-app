@@ -42,6 +42,7 @@ dependencies {
 
     api project(":core")
     implementation project(':feature-two')
+    implementation project(':network')
 
     api hiltDi.core
     kapt hiltDi.compiler
