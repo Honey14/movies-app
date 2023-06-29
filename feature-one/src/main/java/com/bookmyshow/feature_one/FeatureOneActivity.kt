@@ -28,6 +28,8 @@ class FeatureOneActivity : AppCompatActivity(), VenueItemClickListener {
     private val listOfVenues
         get() = binding.listOfVenues
 
+    private val imagefilterVenues
+        get() = binding.imagefilterVenues
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +41,7 @@ class FeatureOneActivity : AppCompatActivity(), VenueItemClickListener {
 
         if (isInternetPermissionGranted()) {
             showVenueList()
+            filterIfImageClicked()
         } else {
             requestInternetPermission()
         }
