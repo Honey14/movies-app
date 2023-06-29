@@ -1,6 +1,7 @@
 package com.bookmyshow.feature_one
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Toast
@@ -10,6 +11,7 @@ import androidx.core.app.ActivityCompat.requestPermissions
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bookmyshow.feature_one.adapter.VenueItemClickListener
 import com.bookmyshow.feature_one.adapter.VenuesAdapter
 import com.bookmyshow.feature_one.databinding.ActivityFeatureOneBinding
 import com.bookmyshow.feature_one.model.Venue
@@ -17,7 +19,7 @@ import com.bookmyshow.feature_one.viewmodel.FeatureOneViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FeatureOneActivity : AppCompatActivity() {
+class FeatureOneActivity : AppCompatActivity(), VenueItemClickListener {
 
     private val viewModel: FeatureOneViewModel by viewModels<FeatureOneViewModel>()
     private lateinit var binding: ActivityFeatureOneBinding
@@ -108,5 +110,11 @@ class FeatureOneActivity : AppCompatActivity() {
             this,
             Manifest.permission.INTERNET
         ) == PackageManager.PERMISSION_GRANTED
+    }
+
+    override fun onVenueItemClicked(venue: Venue) {
+        val intent = Intent(this, VenueDetailActivity::class.java)
+        intent.putExtra("venue", venue)
+        startActivity(intent)
     }
 }

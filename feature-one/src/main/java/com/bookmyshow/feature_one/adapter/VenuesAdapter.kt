@@ -2,6 +2,7 @@ package com.bookmyshow.feature_one.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +16,7 @@ import com.bookmyshow.feature_one.model.Venue
 
 
 class VenuesAdapter(
-    private val context: Context
+    private val listener: VenueItemClickListener
 ) : RecyclerView.Adapter<VenuesAdapter.VenuesViewHolder>() {
 
     val venues = mutableListOf<Venue>()
@@ -37,7 +38,7 @@ class VenuesAdapter(
         holder.textVenueName.text = venue.name
         holder.textShowDate.text = venue.showDate
         holder.textShowDate.setOnClickListener {
-            context.startActivity(Intent(context, FeatureTwoActivity::class.java))
+            listener.onVenueItemClicked(venue = venue)
         }
     }
 
