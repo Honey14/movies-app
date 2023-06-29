@@ -3,7 +3,11 @@
     package="com.bookmyshow.feature_one">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application>
+        <activity
+            android:name=".VenueDetailActivity"
+            android:exported="false" />
         <activity
             android:name=".FeatureOneActivity"
             android:exported="false" />
