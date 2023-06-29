@@ -40,8 +40,16 @@ class FeatureOneViewModel @Inject constructor(
 
             when (result) {
                 is Success -> _listOfVenueObservable.value = result.venues
-                is NoVenues -> _error.value = result.errorMessage
+                is NoVenues ->  _error.value = result.errorMessage
             }
         }
+    }
+
+    fun filterVenuesToAlphabeticalOrder(venues: List<Venue>): List<Venue> {
+        return showTimesRepository.filterVenuesToAlphabeticalOrder(venues)
+    }
+
+    fun clearFilterAppliedToVenues(venues: List<Venue>): List<Venue> {
+        return showTimesRepository.clearFilterAppliedToVenues(venues)
     }
 }
