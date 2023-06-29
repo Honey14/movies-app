@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -29,14 +30,20 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding = true
+    }
+    kapt {
+        correctErrorTypes true
+    }
 }
 
 dependencies {
 
     api project(":core")
 
-    implementation daggerDep.core
-    kapt daggerDep.compiler
+    api hiltDi.core
+    kapt hiltDi.compiler
 
     implementation networking.moshi
     implementation networking.moshiCodegen

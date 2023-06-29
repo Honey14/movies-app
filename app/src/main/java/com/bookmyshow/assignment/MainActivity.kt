@@ -4,11 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import com.bookmyshow.assignment.di.DaggerAppComponentProvider
 import com.bookmyshow.core.ImageLoader
 import com.bookmyshow.feature_one.FeatureOneActivity
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     @Inject
@@ -19,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        DaggerAppComponentProvider.getAppComponent().inject(mainActivity = this)
 
         imageCta = findViewById(R.id.image_cta)
         imageLoader.loadImage(

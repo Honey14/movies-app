@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -36,6 +37,9 @@ android {
     buildFeatures {
         dataBinding = true
     }
+    kapt {
+        correctErrorTypes true
+    }
 }
 
 dependencies {
@@ -55,8 +59,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
 
-    implementation daggerDep.core
-    kapt daggerDep.compiler
+    api hiltDi.core
+    kapt hiltDi.compiler
 
     testImplementation testing.junit
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
