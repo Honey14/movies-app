@@ -1,7 +1,9 @@
 package com.bookmyshow.network.provider
 
+import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
 internal class NetworkProviderImpl : com.bookmyshow.core.NetworkProvider {
@@ -19,11 +21,15 @@ internal class NetworkProviderImpl : com.bookmyshow.core.NetworkProvider {
 
     override fun <ApiClass : Any> getApi(
         apiClass: Class<ApiClass>,
-        baseUrl: String
+        baseUrl: String,
+        moshi: Moshi
     ): ApiClass {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(okHttpClient)
+            .addConverterFactory(
+                MoshiConverterFactory.create(moshi)
+            )
             .build()
             .create(apiClass) as ApiClass
     }

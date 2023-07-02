@@ -5,8 +5,10 @@ import com.bookmyshow.core.NetworkManager
 import com.bookmyshow.core.NetworkProvider
 import com.bookmyshow.network.manager.NetworkManagerImpl
 import com.bookmyshow.network.provider.NetworkProviderImpl
+import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 @Module
 class NetworkModule {
@@ -24,4 +26,8 @@ class NetworkModule {
     fun getNetworkProvider(): NetworkProvider {
         return NetworkProviderImpl()
     }
+
+    @Singleton
+    @Provides
+    fun providesMoshi(): Moshi = Moshi.Builder().build()
 }

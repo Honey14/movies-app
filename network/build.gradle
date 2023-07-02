@@ -42,7 +42,9 @@ dependencies {
     //Networking
     implementation networking.okhttpLog
     implementation networking.retrofitRx
-    implementation networking.retrofitGson
+    implementation networking.moshi
+    implementation networking.moshiCodegen
+    implementation networking.retrofitMoshi
 
     implementation daggerDep.core
     kapt daggerDep.compiler

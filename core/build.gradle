@@ -38,7 +38,8 @@ dependencies {
     api 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     api networking.okhttp
-    api networking.gson
+    implementation networking.moshiCodegen
+    implementation networking.retrofitMoshi
     api networking.retrofit
 
     testImplementation 'junit:junit:4.13.2'
