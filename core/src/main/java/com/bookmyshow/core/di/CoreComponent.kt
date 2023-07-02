@@ -12,7 +12,7 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 interface CoreComponent {
 
-    fun getContext(): Context
+//    fun getContext(): Context
 
     fun getImageLoader(): ImageLoader
 
